@@ -1,0 +1,196 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 84% 9.8%;
+    --foreground: 0 0% 100%;
+
+    --card: 223 37% 17%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 223 37% 17%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 222 84% 9.8%;
+
+    --secondary: 180 100% 41%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 223 37% 17%;
+    --muted-foreground: 0 0% 69%; /* #b0b0b0 */
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 222 84% 9.8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 223 37% 25%;
+    --input: 223 37% 25%;
+    --ring: 180 100% 50%;
+
+    --radius: 12px;
+
+    --sidebar-background: 222 84% 9.8%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 222 84% 9.8%;
+    --sidebar-accent: 223 37% 17%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 223 37% 25%;
+    --sidebar-ring: 180 100% 50%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Poppins',sans-serif];
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Poppins',sans-serif] font-bold;
+  }
+
+  button, a {
+    @apply transition-all duration-300;
+  }
+}
+
+.glass-effect {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-[#00ffff]/10;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animated Background Styles */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.gradient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: blob-move 25s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  width: 60vw;
+  height: 60vw;
+  left: -10vw;
+  top: -10vh;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.7) 0%, rgba(10, 15, 44, 0.2) 70%);
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 55vw;
+  height: 55vw;
+  right: -10vw;
+  bottom: -10vh;
+  background: radial-gradient(circle, rgba(0, 206, 209, 0.6) 0%, rgba(10, 15, 44, 0.2) 70%);
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  width: 50vw;
+  height: 50vw;
+  right: 20vw;
+  top: 20vh;
+  background: radial-gradient(circle, rgba(0, 230, 230, 0.5) 0%, rgba(10, 15, 44, 0.1) 70%);
+  animation-delay: -10s;
+}
+
+@keyframes blob-move {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(5%, 5%) scale(1.05);
+  }
+  66% {
+    transform: translate(-5%, 5%) scale(0.95);
+  }
+  100% {
+    transform: translate(5%, -5%) scale(1.05);
+  }
+}
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
